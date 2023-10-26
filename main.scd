@@ -1,5 +1,52 @@
 (
-
+/*
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+CMD+ENTER
+*/
 //Extern Modules
 var import, srcPath, constants, mainGuiCreator, keyCode, guiFunctions,
 synthsManager, audioManager, fileManager, linkerManager;
@@ -151,6 +198,7 @@ viewBtn = StaticText(mainMenu, Rect(155, 0, 45, 30))
 			inspector.visible_(false);
 			~linkerView.visible_(true);
 			linkModeBtn.visible_(true);
+			linkModeBtn.value = 0;
 		})
 		.font_(constants[\mainToolBarMenuFont]),
 		MenuAction("Show meters", {
@@ -1079,6 +1127,17 @@ mainWin = mainGuiCreator[\mainWin].()
 	if(mod == keyCode[\ctrlShift] && key == keyCode[\s]){
 		saveAs.();
 	};
+	if(~linkerView.visible == true){
+		if(key == keyCode[\q]){
+			linkModeBtn.value = 0;
+		};
+		if(key == keyCode[\w]){
+			linkModeBtn.value = 1;
+		};
+		if(key == keyCode[\e]){
+			linkModeBtn.value = 2;
+		};
+	}
 
 	//[doc, char, mod, unicode, kc, key].postln
 })
@@ -1251,6 +1310,7 @@ opening = {
 cpuIndicatorRoutine = Routine{
 	var value, cpu;
 	inf.do({
+		mainWin.endFullScreen;
 		if(s.serverRunning, {
 			cpu = s.avgCPU;
 			cpuIndicator.value = cpu/100;

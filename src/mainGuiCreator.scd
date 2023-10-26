@@ -23,7 +23,7 @@ mainWin = {
 	var win;
 
 	win = Window(constants[\programName] ++ "untitled")
-	.setTopLeftBounds(Rect(100, 50, 800, 600))
+	.setTopLeftBounds(Rect(50, 50, 1440, 900))
 	.background_(constants[\mainBackground])
 	//.fullScreen
 	.front;
